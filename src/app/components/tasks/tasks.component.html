@@ -1,7 +1,23 @@
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+<form (ngSubmit)="updateSub()" class="update-form" [formGroup]="form">
+    <div class="form-control">
+        <label for="text">Task</label>
+        <input type="text" name="text"  id="text"  formControlName="text">
+    </div>
+    <div class="form-control">
+        <label for="date">Date & Time</label>
+        <input type="text" name="day"  id="day" formControlName="day">
+    </div>
+    <div class="form-control form-control-check">
+        <label for="reminder">Set Reminder</label>
+        <input type="checkbox" name="reminder"  id="reminder" formControlName="reminder">
+    </div>
+    <input type="submit" value="Save Task" class="btn btn-block">
+</form>
 <app-task-item 
     *ngFor="let task of tasks" 
     [task]="task" 
     (onDeleteTask)="deleteTask(task)" 
     (onToggleReminder)="toggleReminder(task)"
+    (onUpdateTask)="updateTask(task)"
     ></app-task-item>

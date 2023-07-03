@@ -10,7 +10,7 @@
       "id": 2,
       "text": "Meeting at School",
       "day": "May 6th 2:00pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "text": "party",
