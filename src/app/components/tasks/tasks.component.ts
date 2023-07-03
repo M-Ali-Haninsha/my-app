@@ -21,8 +21,8 @@ export class TasksComponent {
   ngOnInit(): void {
      this.taskService.getTasks().subscribe((tasks)=>(this.tasks = tasks));
      this.form = new FormGroup({
-      text: new FormControl('') , // initial value for the text field
-      day: new FormControl(''), // initial value for the day field
+      text: new FormControl('') , 
+      day: new FormControl(''), 
       reminder: new FormControl(false),
   })
   }
