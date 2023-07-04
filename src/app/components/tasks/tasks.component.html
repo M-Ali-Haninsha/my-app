@@ -1,5 +1,5 @@
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
-<form (ngSubmit)="updateSub()" class="update-form" [formGroup]="form">
+<form *ngIf="showUpdateTask" (ngSubmit)="updateSub()" class="update-form" [formGroup]="form">
     <div class="form-control">
         <label for="text">Task</label>
         <input type="text" name="text"  id="text"  formControlName="text">

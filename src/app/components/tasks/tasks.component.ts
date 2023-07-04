@@ -16,6 +16,12 @@ export class TasksComponent {
 
   data: any;
 
+  id: any
+
+  updatedValue: any
+
+  showUpdateTask: boolean = false
+
   constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
@@ -42,10 +48,9 @@ export class TasksComponent {
 
   updateTask(task: Task) {
     
+    this.showUpdateTask = !this.showUpdateTask
     this.data = task  
-
-      console.log("hiiii" + task.text);
-
+      this.id = task.id
       this.form.controls['text'].setValue(task.text);
       this.form.controls['day'].setValue(task.day);
       this.form.controls['reminder'].setValue(task.reminder);
@@ -54,16 +59,17 @@ export class TasksComponent {
 
   updateSub() {
       const updatedTask: Task = {
+        id: this.id,
         text: this.form.value.text,
         day: this.form.value.day,
         reminder: this.form.value.reminder
       };
-      this.taskService.updateTasks(updatedTask).subscribe((response) => {
-        console.log('Task updated successfully:', response);
-        // Update this.tasks if needed
-        // this.tasks = response.updatedTask;
-      });
-       
-  }
 
+      this.taskService.updateTasks(updatedTask).subscribe((tasks)=>{
+        this.updatedValue=tasks
+        const index = this.tasks.findIndex(task=> task.id == this.updatedValue.id )
+        this.tasks[index] = this.updatedValue
+        this.showUpdateTask = !this.showUpdateTask
+      })  
+  }
 }

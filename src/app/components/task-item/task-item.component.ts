@@ -23,9 +23,7 @@ export class TaskItemComponent {
     this.onToggleReminder.emit(task)
   }  
 
-  onUpdate(task: any){
-    console.log(task);
-    
+  onUpdate(task: any){    
       this.onUpdateTask.emit(task)
   }
 

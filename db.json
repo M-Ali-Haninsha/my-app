@@ -3,7 +3,7 @@
     {
       "id": 1,
       "text": "morning walk",
-      "day": "May 5th 7:00am",
+      "day": "May 5th 6:00am",
       "reminder": false
     },
     {
@@ -13,10 +13,10 @@
       "reminder": false
     },
     {
+      "id": 3,
       "text": "party",
       "day": "july 4th 8:00pm",
-      "reminder": true,
-      "id": 3
+      "reminder": false
     }
   ]
 }
